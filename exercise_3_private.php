@@ -18,8 +18,8 @@ USE TYPEHINTING EVERYWHERE!
 */
 class beverage{
     private string $color;
-    public float $price;
-    public string $temperature;
+    private float $price;
+    private string $temperature;
 
     public function __construct(string $color, float $price){
         $this->color = $color;
@@ -30,11 +30,28 @@ class beverage{
     public function getInfo() : void{
         echo "This beverage is $this->temperature and $this->color and the price is &euro; $this->price. ";
     }
+
+    /**
+     * @return string
+     */
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
+    }
+
 }
 
 class beer extends beverage{
-    public string $name;
-    public float $alcoholPercentage;
+    private string $name;
+    private float $alcoholPercentage;
 
     /**
      * @param string $name
@@ -55,9 +72,19 @@ class beer extends beverage{
         return $this->alcoholPercentage;
     }
 
+    /**
+     * @return string
+     */
+    public function beerInfo(): string{
+        return "Hello I'm $this->name and have an alcochol percentage of $this->alcoholPercentage and I have a". $this->getColor() ."color";
+    }
 }
 $duvel = new beer('Duvel', 8.7, 'blond',3.5);
 echo $duvel->getAlcoholPercentage().'<br>';
-echo $duvel->alcoholPercentage.'<br>';
+//echo $duvel->alcoholPercentage.'<br>';
 echo $duvel->getInfo().'<br>';
-echo $duvel->color.'<br>';
+echo $duvel->getColor().'<br>';
+$duvel->setColor('light');
+echo "color changed to: <br>";
+echo $duvel->getColor() . '<br>';
+echo $duvel->beerInfo();
