@@ -17,13 +17,11 @@ USE TYPEHINTING EVERYWHERE!
 */
 
 class beverage{
-    public string $name;
     public string $color;
     public float $price;
     public string $temperature;
 
-    public function __construct(string $name, string $color, float $price){
-        $this->name = $name;
+    public function __construct( string $color, float $price){
         $this->color = $color;
         $this->price = $price;
         $this->temperature = "cold";
@@ -34,5 +32,5 @@ class beverage{
     }
 }
 
-$cola = new beverage('cola', 'black', 2);
+$cola = new beverage( 'black', 2);
 $cola->getInfo();
