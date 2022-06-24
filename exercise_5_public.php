@@ -41,4 +41,5 @@ class beverage{
 $cola = new beverage( 'black', 2);
 echo $cola->getInfo().'<br>';
 echo $cola->whatIsTemperature();
-echo $cola->changePrice(3.5);
+echo $cola->changePrice(3.5) .'<br>';
+echo 'change the price to -5.5 returns: '. $cola->changePrice(-5.5);
